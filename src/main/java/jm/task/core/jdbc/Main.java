@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
         UserService userService = new UserServiceImpl();
-        User user = new User();
+
 
 
 
@@ -27,7 +27,6 @@ public class Main {
         userService.saveUser("Рон", "Уизли", (byte) 17);
         userService.saveUser("Альбус Персиваль Вульфрик Брайан", "Дамблдор", (byte) 133);
         userService.removeUserById((long) 4);
-        user.toString();
         userService.getAllUsers().forEach(System.out::println);
         userService.cleanUsersTable();
         userService.dropUsersTable();

@@ -19,26 +19,24 @@ public class Util {
     }
 
     static {
-        LoadDriver();// для работы в старых версиях java
-    }
-
-
-    public static Connection open (){
         try {
-            return DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
-                    PropertiesUtil.get(USERNAME_KEY),
-                    PropertiesUtil.get(PASS_KEY));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void LoadDriver() {
-        try {
-            Class.forName("org.postgresql.Driver");
+            LoadDriver();// для работы в старых версиях java
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public static Connection open () throws SQLException {
+            return DriverManager.getConnection(PropertiesUtil.get(URL_KEY),
+                    PropertiesUtil.get(USERNAME_KEY),
+                    PropertiesUtil.get(PASS_KEY));
+
+    }
+
+    private static void LoadDriver() throws ClassNotFoundException {
+
+        Class.forName("org.postgresql.Driver");
     }
 
 
