@@ -9,9 +9,6 @@ import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
 
-    public UserDaoJDBCImpl(com.mysql.cj.util.Util util) {
-
-    }
 
     public void createUsersTable() {
 
